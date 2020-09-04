@@ -40,19 +40,20 @@ axios.get("https://api.github.com/users/oliviaChen2020")
 */
 
 const followersArray = ["tetondan", "dustinmyers", "justsml", "luishrd", "bigknell"];
-
+let i = 0;
 followersArray.forEach(otherUser => {
   axios.get(`https://api.github.com/users/${followersArray[i]}`)
-    .then(response=>{
-    console.log(response)
-    const cardInfo =gitUser(otherUser)
-    console.log(cardInfo)
-    userCardHolder.appendChild(cardInfo)
-})
-  .catch(error =>{
-    console.log(error);
+      .then(response=>{
+        console.log(response)
+        const cardInfo =gitUser(response.data)
+        console.log(cardInfo)
+        userCardHolder.appendChild(cardInfo)
+  })
+      .catch(error =>{
+      console.log(error);
   })
 
+})
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
     Using DOM methods and properties, create and return the following markup:
