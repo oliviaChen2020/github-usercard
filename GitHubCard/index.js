@@ -40,9 +40,9 @@ axios.get("https://api.github.com/users/oliviaChen2020")
 */
 
 const followersArray = ["tetondan", "dustinmyers", "justsml", "luishrd", "bigknell"];
-let i = 0;
+
 followersArray.forEach(otherUser => {
-  axios.get(`https://api.github.com/users/${followersArray[i]}`)
+  axios.get(`https://api.github.com/users/${otherUser}`)
       .then(response=>{
         console.log(response)
         const cardInfo =gitUser(response.data)
